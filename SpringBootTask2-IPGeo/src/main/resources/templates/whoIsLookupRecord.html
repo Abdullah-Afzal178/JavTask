@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+<div th:insert="navbar :: navbar">  </div>
+<br>
+<br>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1> WhoIsFreaks LookUp Data Record</h1>
+    <br>
+    <hr>
+    <form style="z-index: 2" action="#" th:action="@{/whoisfreaks/lookUp}" th:object="${whoIsLookupModel}" method="get">
+        <input type="text" th:field="*{domain_name}" class="form-control mb-4 col-4" placeholder="Enter Domain Name">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('domain_name')}" th:errors="*{domain_name}"></div>
+        <button type="submit" class="btn btn-info col-2">Get Details</button>
+        <hr>
+        <br>
+        <br>
+    </form>
+    <div class="code">
+        <code>
+            <pre style="color: white" th:text="${jsonResult}"></pre>
+        </code>
+    </div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<div th:insert="footer :: footer">  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+

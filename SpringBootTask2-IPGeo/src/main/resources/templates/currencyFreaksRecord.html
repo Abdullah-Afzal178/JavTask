@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+<div th:insert="navbar :: navbar">  </div>
+<div class="container">
+<br>
+<hr>
+    <br>
+    <br>
+    <br>
+    <br>
+<h1> Currency Freaks Data</h1>
+    <table class="table table-bordered table-striped" >
+        <thead>
+        <tr>
+            <th>Currency Code</th>
+            <th>Currency Name</th>
+            <th>Currency Icon</th>
+            <th>Currency Status</th>
+            <th>Currency available_in_historical_data_from</th>
+            <th>Currency available_in_historical_data_till</th>
+            <th>Country Code</th>
+            <th>Country Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="data:${model}">
+            <td th:text="${data.currencyCode}"></td>
+            <td th:text="${data.currencyName}"></td>
+            <td><img style="width: 50px;height: 50px" th:src="${data.icon}"></td>
+            <td th:text="${data.status}"></td>
+            <td th:text="${data.available_in_historical_data_from}"></td>
+            <td th:text="${data.available_in_historical_data_till}"></td>
+            <td th:text="${data.countryCode}"></td>
+            <td th:text="${data.countryName}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:insert="footer :: footer">  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
